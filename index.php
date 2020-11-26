@@ -1,0 +1,163 @@
+<?php 
+session_start();
+//koneksi ke database
+include 'koneksi.php';
+ ?>
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>NJM Farm</title>
+      <link rel="stylesheet" href="admin/assets/css/bootstrap.css">
+      <link rel="shortcut icon" href="img/NJMFishLogo.png" />
+      <style>
+        body {
+      background-image: url("img/background3.jpg"); 
+      width: 100%;
+    }
+
+      </style>
+    </head>
+    <!-- Awal Jumbotron -->
+    <br>
+    <br>
+    <section class="Jumbotron-bg">
+        <div class="jumbotron warna-bg">
+          <div class="container">
+                <div class="col-md-3">
+
+                  <img src="img/logo.jpg" width="265" height="250" class="img-thumbnail">
+                  
+                </div>
+                <div class="col-md-6">
+              <h1 class="display-4">NJM Farm</h1>
+              <p class="lead">Selamat Datang dan Selamat Berbelanja. </p>
+              <p>Kami Menjual berbagai macam keperluan Ternak.</p>
+              <a class="btn btn-primary btn-lg" href="https://www.tokopedia.com/njmfarm" role="button">Info Toko</a><br><br>
+              </div>
+                <div class="col-md-3">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Official Social Media</h5>
+                      <h5 class="card-subtitle mb-2 text-muted">
+                        <button >
+                        <a href="https://www.instagram.com/njmfarm/"> Instagram</a> 
+                        </button>
+                        <button >
+                        <a href="https://www.tokopedia.com/njmfarm/"> Tokopedia</a> 
+                        </button>
+                      </h5>
+
+                      <h5 class="card-subtitle mb-2 text-muted">Nilai Toko</h5>
+                   
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <h5 class="card-subtitle mb-2 text-muted">Total Produk</h5>
+                        <?php 
+                        $data_barang = $koneksi->query("SELECT * FROM produk");
+                        $jumlah_barang = mysqli_num_rows($data_barang);
+                         ?>
+                        <h4> <?php echo $jumlah_barang ?> Item</h4>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+    </section>
+    <!-- Akhir Jumbotron -->
+    <body>
+<hr>
+
+
+
+<?php 
+// echo "<pre>";
+// print_r($_SESSION['keranjang']);
+// echo "</pre>";
+
+ ?>
+
+      <!-- konten -->
+
+    <br>
+      <section class="konten">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="thumbnail">
+                <center><h2><b>PRODUK TERBARU</b></h2></center>
+              </div>
+            </div>   
+        </div>
+
+
+<?php 
+$ambil = $koneksi->query("SELECT * FROM produk");
+$detail = $ambil->fetch_assoc();
+ ?>
+<!-- jika stok_produk 0 maka tampilan akan hilang -->
+
+
+
+<!-- jika stok_produk di atas 0 maka akan muncul tampilan produk -->
+
+
+  <div class="row">
+
+            <?php $ambil = $koneksi->query("SELECT * FROM produk"); ?>
+            <?php while($perproduk = $ambil->fetch_assoc()){ ?>
+            <div class="col-md-4">
+              <div class="thumbnail"><br>
+                <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" class="img-thumbnail" style="width:300px;height:200px;" alt="">
+                <div class="caption">
+
+                  
+                  <?php if (($perproduk["stok_produk"]==0)): ?>
+
+                  <h3><?php echo $perproduk['nama_produk']; ?> <span class="badge badge-new">HABIS</span></h3>
+
+                  <?php else: ?>
+
+                  <h3><?php echo $perproduk['nama_produk']; ?> <span class="badge badge-new">NEW</span></h3>
+
+                  <?php endif ?>
+
+
+                  <?php if (($perproduk["stok_produk"]==0)): ?>
+                      <h5>Maaf Produk ini sedang Kosong</h5>
+                  <a href="https://www.instagram.com/njmfish/" class="btn btn-success"><span class="glyphicon glyphicon-bell"></span> Request Stok</a>
+
+                  <?php else: ?>
+
+                  <h5>Rp. <?php echo number_format($perproduk['harga_produk']); ?></h5>
+                  <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Beli</a>                  
+                  <?php endif ?>
+
+                </div>
+              </div>
+            </div>
+          <?php } ?> 
+  </div>
+
+
+
+  
+
+          
+        
+      </section>
+<?php include 'menu.php'; ?><br>
+    </body>
+</html>
